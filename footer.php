@@ -1,0 +1,8 @@
+</div>
+
+<!-- Script-->
+<?php wp_footer(); ?>
+
+</body>
+
+</html>

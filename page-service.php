@@ -1,0 +1,306 @@
+<?php get_header(); ?>
+
+<!-- HERO -->
+<section class="vertical-scrolling hero" style="background-image: url('../img/gibka-hero.jpg');">
+  <div class="container">
+    <div class="hero__container">
+      <div class="hero__left">
+        <div class="hero__content">
+          <h1 class="hero__title">Гибка листового металла от&nbsp;SOVTEST ATE</h1>
+          <div class="hero__text">
+            <p>Формирование, угловые изгибы, кромка, прочность, кастомизация.</p>
+          </div>
+        </div>
+        <ul class="hero__benefits">
+          <li>
+            <img src="/img/icons/press.svg" alt="Усилие пресса 100 тонн">
+            <p>Усилие пресса <span>100 тонн</span></p>
+          </li>
+          <li>
+            <img src="/img/icons/dlina.svg" alt="Усилие пресса 3000 мм">
+            <p>Макс. длина гиба <span>3000 мм</span></p>
+          </li>
+          <li>
+            <img src="/img/icons/glubina.svg" alt="Глубина зазора 400 мм">
+            <p>Глубина зазора <span>400 мм</span></p>
+          </li>
+          <li>
+            <img src="/img/icons/tolshina.svg" alt="Макс. толщина металла 5 мм">
+            <p>Макс. толщина металла <span>5 мм</span></p>
+          </li>
+        </ul>
+      </div>
+      <div class="hero__right">
+        <div class="form-wrapper">
+          <h2 class="form-title">Оставьте заявку и мы свяжемся с вами</h2>
+          <form action="#" class="form">
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="ФИО">
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-input" placeholder="+7 ___ ___ __ __">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="Whitelist">
+            </div>
+            <div class="form-group">
+              <textarea name="" id="" cols="30" rows="10" placeholder=""></textarea>
+            </div>
+            <div class="form-bottom">
+              <div class="input-group file-upload">
+                <span class="wpcf7-form-control-wrap file-801 file-input">
+                  <input type="file" size="40"
+                    class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" id="cv_file"
+                    accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv">
+                </span>
+                <label></label>
+              </div>
+              <input type="submit" value="Отправить заявку" class="button">
+            </div>
+          </form>
+          <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a href="#">политикой
+              конфиденциальности</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="vertical-scrolling about">
+  <img src="/img/gibka-about.svg" class="about__illustration" alt="">
+  <div class="container">
+    <div class="about__container">
+      <div class="about__content">
+        <h2 class="about__title">Наше оборудование</h2>
+        <div class="about__text">
+          <p>Полученные с помощью гибки металлические детали получаются не только прочными, но и привлекательными
+            внешне. С помощью гибки обычно изготавливаются корпусные и другие детали, где недопустимо использование
+            сварочных аппаратов. На таких деталях не остается никаких следов обработки, да и риск появления дефектов в
+            процессе работы по гибке металла практически отсутствует</p>
+        </div>
+      </div>
+      <div class="about__first">
+        <div class="about__first-content">
+          <p>Оборудование цеха позволяет подготавливать поверхность и окрашивать изделия со следующими габаритами и
+            весами:</p>
+        </div>
+        <div class="about__first-wrapper">
+          <div class="swiper aboutImgSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/img/gibka-about-slider-img.png" alt=""></div>
+              <div class="swiper-slide"><img src="/img/gibka-about-slider-img.png" alt=""></div>
+              <div class="swiper-slide"><img src="/img/gibka-about-slider-img.png" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="about__info">
+            <ul>
+              <li>Модель станка: Bystronic Xpert 100/3100</li>
+              <li>Усилие пресса: 100 тонн</li>
+              <li>Макс. длина гиба: 3000 мм</li>
+              <li>Глубина зазора: 400 мм</li>
+              <li>Точность позиционирования: 0,004 мм – 0,1 мм (в зависимости от оси)</li>
+              <li>Количество управляемых осей: 8</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="about__second">
+        <div class="swiper aboutInfoSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="about__info">
+                <h2>TIG аргонодуговая сварка</h2>
+                <p>
+                  При такой сварке температура горения дуги достаточно высокая. Благодаря такой особенности сварщик
+                  может соединить и углеродистую сталь, и цветной металл. <br> При этом качество шва будет на достойном
+                  уровне. Можно работать с чугуном, алюминием и его сплавами, титаном и другими металлами. Особенно
+                  эстетичными получаются швы при TIG сварке нержавейки. <br> Шов сразу получается чистым, его не нужно
+                  очищать от шлака или брызг. <br> Аргонодуговая сварка TIG способна соединять разнородные металлы
+                  толщиной от 0,3 мм в любых пространственных положениях.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="about__info">
+                <h2>TIG аргонодуговая сварка</h2>
+                <p>
+                  При такой сварке температура горения дуги достаточно высокая. Благодаря такой особенности сварщик
+                  может соединить и углеродистую сталь, и цветной металл. <br> При этом качество шва будет на достойном
+                  уровне. Можно работать с чугуном, алюминием и его сплавами, титаном и другими металлами. Особенно
+                  эстетичными получаются швы при TIG сварке нержавейки. <br> Шов сразу получается чистым, его не нужно
+                  очищать от шлака или брызг. <br> Аргонодуговая сварка TIG способна соединять разнородные металлы
+                  толщиной от 0,3 мм в любых пространственных положениях.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="about__info">
+                <h2>TIG аргонодуговая сварка</h2>
+                <p>
+                  При такой сварке температура горения дуги достаточно высокая. Благодаря такой особенности сварщик
+                  может соединить и углеродистую сталь, и цветной металл. <br> При этом качество шва будет на достойном
+                  уровне. Можно работать с чугуном, алюминием и его сплавами, титаном и другими металлами. Особенно
+                  эстетичными получаются швы при TIG сварке нержавейки. <br> Шов сразу получается чистым, его не нужно
+                  очищать от шлака или брызг. <br> Аргонодуговая сварка TIG способна соединять разнородные металлы
+                  толщиной от 0,3 мм в любых пространственных положениях.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="vertical-scrolling gallery">
+  <div class="container">
+    <h2 class="section-title">Примеры готовых изделий</h2>
+    <div class="swiper gallerySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="/img/gallery-slider-1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-2.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-3.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-2.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-3.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-2.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="/img/gallery-slider-3.jpg" alt=""></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="gallery__cards">
+      <img src="img/gallery-cards-1.jpg" alt="">
+      <img src="img/gallery-cards-2.jpg" alt="">
+      <img src="img/gallery-cards-3.jpg" alt="">
+      <img src="img/gallery-cards-4.jpg" alt="">
+      <img src="img/gallery-cards-5.jpg" alt="">
+      <img src="img/gallery-cards-6.jpg" alt="">
+      <img src="img/gallery-cards-7.jpg" alt="">
+      <img src="img/gallery-cards-8.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="vertical-scrolling benefits">
+  <div class="container">
+    <h2 class="section-title">Наши преимущества</h2>
+    <div class="benefits__cards">
+      <div class="benefits-item" style="background-image: url('../img/benefits-quality.jpg');">
+        <h3 class="benefits-item__title">Высокое качество</h3>
+        <p class="benefits-item__text">Благодаря современному оборудованию</p>
+      </div>
+      <div class="benefits-item" style="background-image: url('../img/benefits-cycle.jpg');">
+        <h3 class="benefits-item__title">Полный цикл производства</h3>
+        <ul class="benefits-item__points">
+          <li>Разработка</li>
+          <li>Резка</li>
+          <li>Гибка</li>
+          <li>Сварка</li>
+          <li>Покраска</li>
+          <li>Сборка</li>
+        </ul>
+      </div>
+      <div class="benefits-item" style="background-image: url('../img/benefits-experience.jpg');">
+        <h3 class="benefits-item__title">Большой опыт в гибке листового металла</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="vertical-scrolling" style="justify-content: flex-end;">
+  <section class="cta">
+    <div class="container">
+      <div class="cta__wrapper" style="background-image: url('../img/gibka-cta.jpg')">
+        <div class="hero__left">
+          <div class="hero__content">
+            <h1 class="hero__title">Гибка листового металла от&nbsp;SOVTEST ATE</h1>
+            <div class="hero__text">
+              <p>Формирование, угловые изгибы, кромка, прочность, кастомизация.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero__right">
+          <div class="form-wrapper">
+            <h2 class="form-title">Оставьте заявку и мы свяжемся с вами</h2>
+            <form action="#" class="form">
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="ФИО">
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-input" placeholder="+7 ___ ___ __ __">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="Whitelist">
+              </div>
+              <div class="form-group">
+                <textarea name="" id="" cols="30" rows="10" placeholder=""></textarea>
+              </div>
+              <div class="form-bottom">
+                <div class="input-group file-upload">
+                  <span class="wpcf7-form-control-wrap file-801 file-input">
+                    <input type="file" size="40"
+                      class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" id="cv_file"
+                      accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv">
+                  </span>
+                  <label></label>
+                </div>
+                <input type="submit" value="Отправить заявку" class="button">
+              </div>
+            </form>
+            <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a href="#">политикой
+                конфиденциальности</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <a href="/" class="logo">
+          <img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="">
+        </a>
+        <ul class="nav__menu">
+          <li><a href="#">Резка</a></li>
+          <li><a href="#">Гибка</a></li>
+          <li><a href="#">Сварка</a></li>
+          <li><a href="#">Покраска</a></li>
+          <li><a href="#">Сложные корпусные изделия</a></li>
+        </ul>
+        <div class="nav__links">
+          <a href="#">Заказать расчет стоимости</a>
+          <a href="tel:+88005674578" class="phone">8 800 567 45 78</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 1991-2023 «Совтест АТЕ», ООО <a href="#">Политика конфиденциальности</a></p>
+        <ul class="footer__contacts">
+          <li>
+            <span>Телефон в Курске:</span>
+            <p>8 (4712) 54 54 17, 73 04 90</p>
+          </li>
+          <li>
+            <span>Факс:</span>
+            <p>(472) 54 54 24</p>
+          </li>
+          <li>
+            <span>Email:</span>
+            <a href="mailto:rev-e@sovtest-ate.com">rev-e@sovtest-ate.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<?php get_footer(); ?>
