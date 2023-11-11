@@ -1,38 +1,37 @@
-<?php get_header(); ?>
+<?php 
+/*
+Template Name: Шаблон страницы услуги
+*/
+get_header(); ?>
 
 <!-- HERO -->
-<section class="vertical-scrolling hero" style="background-image: url('../img/gibka-hero.jpg');">
+<section class="vertical-scrolling hero" style="background-image: url('<?php the_field('hero_bg'); ?>');">
   <div class="container">
     <div class="hero__container">
       <div class="hero__left">
         <div class="hero__content">
-          <h1 class="hero__title">Гибка листового металла от&nbsp;SOVTEST ATE</h1>
-          <div class="hero__text">
-            <p>Формирование, угловые изгибы, кромка, прочность, кастомизация.</p>
-          </div>
+          <h1 class="hero__title"><?php the_field('hero_title'); ?></h1>
+          <?php if (get_field('hero_text')) { ?>
+            <div class="hero__text"><?php the_field('hero_text'); ?></div>
+          <?php } ?>
         </div>
-        <ul class="hero__benefits">
-          <li>
-            <img src="/img/icons/press.svg" alt="Усилие пресса 100 тонн">
-            <p>Усилие пресса <span>100 тонн</span></p>
-          </li>
-          <li>
-            <img src="/img/icons/dlina.svg" alt="Усилие пресса 3000 мм">
-            <p>Макс. длина гиба <span>3000 мм</span></p>
-          </li>
-          <li>
-            <img src="/img/icons/glubina.svg" alt="Глубина зазора 400 мм">
-            <p>Глубина зазора <span>400 мм</span></p>
-          </li>
-          <li>
-            <img src="/img/icons/tolshina.svg" alt="Макс. толщина металла 5 мм">
-            <p>Макс. толщина металла <span>5 мм</span></p>
-          </li>
-        </ul>
+        <?php if(have_rows('hero_benefits') ): ?>
+          <ul class="hero__benefits">
+            <?php while (have_rows('hero_benefits') ) : the_row(); ?>
+              <li>
+                <img src="<?php the_sub_field('icon'); ?>" alt="icon">
+                <p>
+                  <?php if (get_sub_field('title')) { the_sub_field('title'); } ?> 
+                  <?php if (get_sub_field('value')) { ?><span><?php the_sub_field('value'); ?></span><?php } ?>
+                </p>
+              </li>
+            <?php endwhile; ?>
+          </ul>
+        <?php endif; ?>
       </div>
       <div class="hero__right">
         <div class="form-wrapper">
-          <h2 class="form-title">Оставьте заявку и мы свяжемся с вами</h2>
+          <h2 class="form-title"><?php the_field('form_title', 'options') ?></h2>
           <form action="#" class="form">
             <div class="form-group">
               <input type="text" class="form-input" placeholder="ФИО">
@@ -58,8 +57,14 @@
               <input type="submit" value="Отправить заявку" class="button">
             </div>
           </form>
-          <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a href="#">политикой
-              конфиденциальности</a></p>
+          <?php $form_accept_link = get_field('form_accept_link', 'options');
+          if( $form_accept_link ): 
+            $form_accept_link_url = $form_accept_link['url'];
+            $form_accept_link_title = $form_accept_link['title'];
+            $form_accept_link_target = $form_accept_link['target'] ? $form_accept_link['target'] : '_self';
+            ?>
+          <?php endif; ?>
+          <p class="accept"><?php the_field('form_accept', 'options') ?> <a href="<?php echo esc_url($form_accept_link_url); ?>" target="<?php echo esc_attr($form_accept_link_target); ?>"><?php echo esc_html($form_accept_link_title); ?></a></p>
         </div>
       </div>
     </div>
