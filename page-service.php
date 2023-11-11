@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 Template Name: Шаблон страницы услуги
 */
@@ -10,19 +10,29 @@ get_header(); ?>
     <div class="hero__container">
       <div class="hero__left">
         <div class="hero__content">
-          <h1 class="hero__title"><?php the_field('hero_title'); ?></h1>
+          <h1 class="hero__title">
+            <?php the_field('hero_title'); ?>
+          </h1>
           <?php if (get_field('hero_text')) { ?>
-            <div class="hero__text"><?php the_field('hero_text'); ?></div>
+            <div class="hero__text">
+              <?php the_field('hero_text'); ?>
+            </div>
           <?php } ?>
         </div>
-        <?php if(have_rows('hero_benefits') ): ?>
+        <?php if (have_rows('hero_benefits')): ?>
           <ul class="hero__benefits">
-            <?php while (have_rows('hero_benefits') ) : the_row(); ?>
+            <?php while (have_rows('hero_benefits')):
+              the_row(); ?>
               <li>
                 <img src="<?php the_sub_field('icon'); ?>" alt="icon">
                 <p>
-                  <?php if (get_sub_field('title')) { the_sub_field('title'); } ?> 
-                  <?php if (get_sub_field('value')) { ?><span><?php the_sub_field('value'); ?></span><?php } ?>
+                  <?php if (get_sub_field('title')) {
+                    the_sub_field('title');
+                  } ?>
+                  <?php if (get_sub_field('value')) { ?><span>
+                      <?php the_sub_field('value'); ?>
+                    </span>
+                  <?php } ?>
                 </p>
               </li>
             <?php endwhile; ?>
@@ -31,7 +41,9 @@ get_header(); ?>
       </div>
       <div class="hero__right">
         <div class="form-wrapper">
-          <h2 class="form-title"><?php the_field('form_title', 'options') ?></h2>
+          <h2 class="form-title">
+            <?php the_field('form_title', 'options') ?>
+          </h2>
           <form action="#" class="form">
             <div class="form-group">
               <input type="text" class="form-input" placeholder="ФИО">
@@ -58,13 +70,18 @@ get_header(); ?>
             </div>
           </form>
           <?php $form_accept_link = get_field('form_accept_link', 'options');
-          if( $form_accept_link ): 
+          if ($form_accept_link):
             $form_accept_link_url = $form_accept_link['url'];
             $form_accept_link_title = $form_accept_link['title'];
             $form_accept_link_target = $form_accept_link['target'] ? $form_accept_link['target'] : '_self';
             ?>
           <?php endif; ?>
-          <p class="accept"><?php the_field('form_accept', 'options') ?> <a href="<?php echo esc_url($form_accept_link_url); ?>" target="<?php echo esc_attr($form_accept_link_target); ?>"><?php echo esc_html($form_accept_link_title); ?></a></p>
+          <p class="accept">
+            <?php the_field('form_accept', 'options') ?> <a href="<?php echo esc_url($form_accept_link_url); ?>"
+              target="<?php echo esc_attr($form_accept_link_target); ?>">
+              <?php echo esc_html($form_accept_link_title); ?>
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -73,90 +90,69 @@ get_header(); ?>
 
 <!-- ABOUT -->
 <section class="vertical-scrolling about">
-  <img src="/img/gibka-about.svg" class="about__illustration" alt="">
+  <img src="<?php the_field('about_illustration'); ?>" class="about__illustration" alt="">
   <div class="container">
     <div class="about__container">
       <div class="about__content">
-        <h2 class="about__title">Наше оборудование</h2>
+        <h2 class="about__title">
+          <?php the_field('about_title'); ?>
+        </h2>
         <div class="about__text">
-          <p>Полученные с помощью гибки металлические детали получаются не только прочными, но и привлекательными
-            внешне. С помощью гибки обычно изготавливаются корпусные и другие детали, где недопустимо использование
-            сварочных аппаратов. На таких деталях не остается никаких следов обработки, да и риск появления дефектов в
-            процессе работы по гибке металла практически отсутствует</p>
+          <?php the_field('about_text'); ?>
         </div>
       </div>
-      <div class="about__first">
-        <div class="about__first-content">
-          <p>Оборудование цеха позволяет подготавливать поверхность и окрашивать изделия со следующими габаритами и
-            весами:</p>
-        </div>
-        <div class="about__first-wrapper">
-          <div class="swiper aboutImgSwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="/img/gibka-about-slider-img.png" alt=""></div>
-              <div class="swiper-slide"><img src="/img/gibka-about-slider-img.png" alt=""></div>
-              <div class="swiper-slide"><img src="/img/gibka-about-slider-img.png" alt=""></div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-          <div class="about__info">
-            <ul>
-              <li>Модель станка: Bystronic Xpert 100/3100</li>
-              <li>Усилие пресса: 100 тонн</li>
-              <li>Макс. длина гиба: 3000 мм</li>
-              <li>Глубина зазора: 400 мм</li>
-              <li>Точность позиционирования: 0,004 мм – 0,1 мм (в зависимости от оси)</li>
-              <li>Количество управляемых осей: 8</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="about__second">
-        <div class="swiper aboutInfoSwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="about__info">
-                <h2>TIG аргонодуговая сварка</h2>
-                <p>
-                  При такой сварке температура горения дуги достаточно высокая. Благодаря такой особенности сварщик
-                  может соединить и углеродистую сталь, и цветной металл. <br> При этом качество шва будет на достойном
-                  уровне. Можно работать с чугуном, алюминием и его сплавами, титаном и другими металлами. Особенно
-                  эстетичными получаются швы при TIG сварке нержавейки. <br> Шов сразу получается чистым, его не нужно
-                  очищать от шлака или брызг. <br> Аргонодуговая сварка TIG способна соединять разнородные металлы
-                  толщиной от 0,3 мм в любых пространственных положениях.
-                </p>
+      <?php if (have_rows('about')):
+        while (have_rows('about')): the_row();
+
+          if (get_row_layout() == 'first'): ?>
+            <div class="about__first">
+
+              <?php if (get_sub_field('content')) { ?>
+                <div class="about__first-content">
+                  <?php the_sub_field('content'); ?>
+                </div>
+              <?php } ?>
+
+              <div class="about__first-wrapper">
+
+                <?php if( have_rows('imgs') ): ?>
+                  <div class="swiper aboutImgSwiper">
+                    <div class="swiper-wrapper">
+                    <?php while ( have_rows('imgs') ) : the_row(); ?>
+                      <div class="swiper-slide"><img src="<?php the_sub_field('img'); ?>" alt="image"></div>
+                    <?php endwhile; ?>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                <?php endif; ?>
+
+                <?php if (get_sub_field('info')) { ?>
+                  <div class="about__info">
+                    <?php the_sub_field('info'); ?>
+                  </div>
+                <?php } ?>
+
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="about__info">
-                <h2>TIG аргонодуговая сварка</h2>
-                <p>
-                  При такой сварке температура горения дуги достаточно высокая. Благодаря такой особенности сварщик
-                  может соединить и углеродистую сталь, и цветной металл. <br> При этом качество шва будет на достойном
-                  уровне. Можно работать с чугуном, алюминием и его сплавами, титаном и другими металлами. Особенно
-                  эстетичными получаются швы при TIG сварке нержавейки. <br> Шов сразу получается чистым, его не нужно
-                  очищать от шлака или брызг. <br> Аргонодуговая сварка TIG способна соединять разнородные металлы
-                  толщиной от 0,3 мм в любых пространственных положениях.
-                </p>
-              </div>
+
+          <?php elseif (get_row_layout() == 'second'): ?>
+            <div class="about__second">
+            <?php if( have_rows('info_slider') ): ?>
+                  <div class="swiper aboutInfoSwiper">
+                    <div class="swiper-wrapper">
+                    <?php while ( have_rows('info_slider') ) : the_row(); ?>
+                      <div class="swiper-slide">
+                        <div class="about__info"><?php the_field('item'); ?></div>
+                      </div>
+                    <?php endwhile; ?>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                <?php endif; ?>
             </div>
-            <div class="swiper-slide">
-              <div class="about__info">
-                <h2>TIG аргонодуговая сварка</h2>
-                <p>
-                  При такой сварке температура горения дуги достаточно высокая. Благодаря такой особенности сварщик
-                  может соединить и углеродистую сталь, и цветной металл. <br> При этом качество шва будет на достойном
-                  уровне. Можно работать с чугуном, алюминием и его сплавами, титаном и другими металлами. Особенно
-                  эстетичными получаются швы при TIG сварке нержавейки. <br> Шов сразу получается чистым, его не нужно
-                  очищать от шлака или брызг. <br> Аргонодуговая сварка TIG способна соединять разнородные металлы
-                  толщиной от 0,3 мм в любых пространственных положениях.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
+          <?php endif;
+        endwhile;
+      endif; ?>
     </div>
   </div>
 </section>
