@@ -878,6 +878,16 @@ th {
 .swiper-pagination-bullet-active {
   background-color: var(--global-color);
 }
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 36px;
+  color: var(--white-color);
+  transition: color .3s ease;
+}
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
+  color: var(--global-color);
+}
 
 @media screen and (max-width: 1024px) {
   .swiper-pagination-bullet {

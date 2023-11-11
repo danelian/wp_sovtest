@@ -102,7 +102,8 @@ get_header(); ?>
         </div>
       </div>
       <?php if (have_rows('about')):
-        while (have_rows('about')): the_row();
+        while (have_rows('about')):
+          the_row();
 
           if (get_row_layout() == 'first'): ?>
             <div class="about__first">
@@ -115,12 +116,13 @@ get_header(); ?>
 
               <div class="about__first-wrapper">
 
-                <?php if( have_rows('imgs') ): ?>
+                <?php if (have_rows('imgs')): ?>
                   <div class="swiper aboutImgSwiper">
                     <div class="swiper-wrapper">
-                    <?php while ( have_rows('imgs') ) : the_row(); ?>
-                      <div class="swiper-slide"><img src="<?php the_sub_field('img'); ?>" alt="image"></div>
-                    <?php endwhile; ?>
+                      <?php while (have_rows('imgs')):
+                        the_row(); ?>
+                        <div class="swiper-slide"><img src="<?php the_sub_field('img'); ?>" alt="image"></div>
+                      <?php endwhile; ?>
                     </div>
                     <div class="swiper-pagination"></div>
                   </div>
@@ -137,18 +139,21 @@ get_header(); ?>
 
           <?php elseif (get_row_layout() == 'second'): ?>
             <div class="about__second">
-            <?php if( have_rows('info_slider') ): ?>
-                  <div class="swiper aboutInfoSwiper">
-                    <div class="swiper-wrapper">
-                    <?php while ( have_rows('info_slider') ) : the_row(); ?>
+              <?php if (have_rows('info_slider')): ?>
+                <div class="swiper aboutInfoSwiper">
+                  <div class="swiper-wrapper">
+                    <?php while (have_rows('info_slider')):
+                      the_row(); ?>
                       <div class="swiper-slide">
-                        <div class="about__info"><?php the_field('item'); ?></div>
+                        <div class="about__info">
+                          <?php the_field('item'); ?>
+                        </div>
                       </div>
                     <?php endwhile; ?>
-                    </div>
-                    <div class="swiper-pagination"></div>
                   </div>
-                <?php endif; ?>
+                  <div class="swiper-pagination"></div>
+                </div>
+              <?php endif; ?>
             </div>
           <?php endif;
         endwhile;
@@ -160,31 +165,41 @@ get_header(); ?>
 <!-- GALLERY -->
 <section class="vertical-scrolling gallery">
   <div class="container">
-    <h2 class="section-title">Примеры готовых изделий</h2>
-    <div class="swiper gallerySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="/img/gallery-slider-1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-2.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-3.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-2.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-3.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-2.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="/img/gallery-slider-3.jpg" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <div class="gallery__cards">
-      <img src="img/gallery-cards-1.jpg" alt="">
-      <img src="img/gallery-cards-2.jpg" alt="">
-      <img src="img/gallery-cards-3.jpg" alt="">
-      <img src="img/gallery-cards-4.jpg" alt="">
-      <img src="img/gallery-cards-5.jpg" alt="">
-      <img src="img/gallery-cards-6.jpg" alt="">
-      <img src="img/gallery-cards-7.jpg" alt="">
-      <img src="img/gallery-cards-8.jpg" alt="">
-    </div>
+    <h2 class="section-title">
+      <?php the_field('gallery_title'); ?>
+    </h2>
+    <?php if (have_rows('gallery')):
+      while (have_rows('gallery')):
+        the_row();
+        if (get_row_layout() == 'first'): ?>
+          <?php if (have_rows('slider')): ?>
+            <div class="swiper gallerySwiper">
+              <div class="swiper-wrapper">
+                <?php while (have_rows('slider')):
+                  the_row(); ?>
+                  <div class="swiper-slide">
+                    <img src="<?php the_sub_field('img'); ?>" alt="">
+                  </div>
+                <?php endwhile; ?>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          <?php endif; ?>
+
+        <?php elseif (get_row_layout() == 'second'): ?>
+          <?php if (have_rows('cards')): ?>
+            <div class="gallery__cards">
+              <?php while (have_rows('cards')):
+                the_row(); ?>
+                <img src="<?php the_sub_field('img'); ?>" alt="">
+              <?php endwhile; ?>
+            </div>
+          <?php endif; ?>
+        <?php endif;
+      endwhile;
+    endif; ?>
   </div>
 </section>
 
