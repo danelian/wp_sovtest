@@ -206,27 +206,32 @@ get_header(); ?>
 <!-- BENEFITS -->
 <section class="vertical-scrolling benefits">
   <div class="container">
-    <h2 class="section-title">Наши преимущества</h2>
-    <div class="benefits__cards">
-      <div class="benefits-item" style="background-image: url('../img/benefits-quality.jpg');">
-        <h3 class="benefits-item__title">Высокое качество</h3>
-        <p class="benefits-item__text">Благодаря современному оборудованию</p>
+    <h2 class="section-title">
+      <?php the_field('benefits_title'); ?>
+    </h2>
+    <?php if (have_rows('benefits_cards')): ?>
+      <div class="benefits__cards">
+        <?php while (have_rows('benefits_cards')):
+          the_row(); ?>
+          <div class="benefits-item" style="background-image: url('<?php the_sub_field('bg') ?>');">
+            <?php if (get_sub_field('title')) { ?>
+              <h3 class="benefits-item__title"><?php the_sub_field('title'); ?></h3>
+            <?php } ?>
+            <?php if (get_sub_field('text')) { ?>
+              <p class="benefits-item__text"><?php the_sub_field('text'); ?></p>
+            <?php } ?>
+            <?php if (have_rows('points')): ?>
+              <ul class="benefits-item__points">
+                <?php while (have_rows('points')):
+                  the_row(); ?>
+                  <li><?php the_sub_field('point'); ?></li>
+                <?php endwhile; ?>
+                </ul>
+            <?php endif; ?>
+          </div>
+        <?php endwhile; ?>
       </div>
-      <div class="benefits-item" style="background-image: url('../img/benefits-cycle.jpg');">
-        <h3 class="benefits-item__title">Полный цикл производства</h3>
-        <ul class="benefits-item__points">
-          <li>Разработка</li>
-          <li>Резка</li>
-          <li>Гибка</li>
-          <li>Сварка</li>
-          <li>Покраска</li>
-          <li>Сборка</li>
-        </ul>
-      </div>
-      <div class="benefits-item" style="background-image: url('../img/benefits-experience.jpg');">
-        <h3 class="benefits-item__title">Большой опыт в гибке листового металла</h3>
-      </div>
-    </div>
+    <?php endif; ?>
   </div>
 </section>
 
