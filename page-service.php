@@ -76,12 +76,8 @@ get_header(); ?>
             $form_accept_link_target = $form_accept_link['target'] ? $form_accept_link['target'] : '_self';
             ?>
           <?php endif; ?>
-          <p class="accept">
-            <?php the_field('form_accept', 'options') ?> <a href="<?php echo esc_url($form_accept_link_url); ?>"
-              target="<?php echo esc_attr($form_accept_link_target); ?>">
-              <?php echo esc_html($form_accept_link_title); ?>
-            </a>
-          </p>
+          <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a target="_blank"
+              href="<?php echo get_privacy_policy_url(); ?>">политикой конфиденциальности</a></p>
         </div>
       </div>
     </div>
@@ -215,18 +211,24 @@ get_header(); ?>
           the_row(); ?>
           <div class="benefits-item" style="background-image: url('<?php the_sub_field('bg') ?>');">
             <?php if (get_sub_field('title')) { ?>
-              <h3 class="benefits-item__title"><?php the_sub_field('title'); ?></h3>
+              <h3 class="benefits-item__title">
+                <?php the_sub_field('title'); ?>
+              </h3>
             <?php } ?>
             <?php if (get_sub_field('text')) { ?>
-              <p class="benefits-item__text"><?php the_sub_field('text'); ?></p>
+              <p class="benefits-item__text">
+                <?php the_sub_field('text'); ?>
+              </p>
             <?php } ?>
             <?php if (have_rows('points')): ?>
               <ul class="benefits-item__points">
                 <?php while (have_rows('points')):
                   the_row(); ?>
-                  <li><?php the_sub_field('point'); ?></li>
+                  <li>
+                    <?php the_sub_field('point'); ?>
+                  </li>
                 <?php endwhile; ?>
-                </ul>
+              </ul>
             <?php endif; ?>
           </div>
         <?php endwhile; ?>
@@ -239,18 +241,24 @@ get_header(); ?>
 <div class="vertical-scrolling" style="justify-content: flex-end;">
   <section class="cta">
     <div class="container">
-      <div class="cta__wrapper" style="background-image: url('../img/gibka-cta.jpg')">
+      <div class="cta__wrapper" style="background-image: url('<?php the_field('hero_bg'); ?>')">
         <div class="hero__left">
           <div class="hero__content">
-            <h1 class="hero__title">Гибка листового металла от&nbsp;SOVTEST ATE</h1>
-            <div class="hero__text">
-              <p>Формирование, угловые изгибы, кромка, прочность, кастомизация.</p>
-            </div>
+            <h1 class="hero__title">
+              <?php the_field('hero_title'); ?>
+            </h1>
+            <?php if (get_field('hero_text')) { ?>
+              <div class="hero__text">
+                <?php the_field('hero_text'); ?>
+              </div>
+            <?php } ?>
           </div>
         </div>
         <div class="hero__right">
           <div class="form-wrapper">
-            <h2 class="form-title">Оставьте заявку и мы свяжемся с вами</h2>
+            <h2 class="form-title">
+              <?php the_field('form_title', 'options') ?>
+            </h2>
             <form action="#" class="form">
               <div class="form-group">
                 <input type="text" class="form-input" placeholder="ФИО">
@@ -276,8 +284,15 @@ get_header(); ?>
                 <input type="submit" value="Отправить заявку" class="button">
               </div>
             </form>
-            <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a href="#">политикой
-                конфиденциальности</a></p>
+            <?php $form_accept_link = get_field('form_accept_link', 'options');
+            if ($form_accept_link):
+              $form_accept_link_url = $form_accept_link['url'];
+              $form_accept_link_title = $form_accept_link['title'];
+              $form_accept_link_target = $form_accept_link['target'] ? $form_accept_link['target'] : '_self';
+              ?>
+            <?php endif; ?>
+            <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a target="_blank"
+                href="<?php echo get_privacy_policy_url(); ?>">политикой конфиденциальности</a></p>
           </div>
         </div>
       </div>
@@ -289,35 +304,77 @@ get_header(); ?>
     <div class="container">
       <div class="footer__top">
         <a href="/" class="logo">
-          <img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="">
+          <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt="">
         </a>
-        <ul class="nav__menu">
-          <li><a href="#">Резка</a></li>
-          <li><a href="#">Гибка</a></li>
-          <li><a href="#">Сварка</a></li>
-          <li><a href="#">Покраска</a></li>
-          <li><a href="#">Сложные корпусные изделия</a></li>
-        </ul>
+        <?php
+        wp_nav_menu([
+          'theme_location' => 'header',
+          'container' => '',
+          'menu_class' => 'nav__menu',
+          'menu_id' => false,
+          'echo' => true,
+          'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        ]);
+        ?>
         <div class="nav__links">
           <a href="#">Заказать расчет стоимости</a>
-          <a href="tel:+88005674578" class="phone">8 800 567 45 78</a>
+          <?php
+          $phone = get_field('phone', 'options');
+          if ($phone):
+            $phone_url = $phone['url'];
+            $phone_title = $phone['title'];
+            $phone_target = $phone['target'] ? $phone['target'] : '_self';
+            ?>
+            <a href="<?php echo esc_url($phone_url); ?>" target="<?php echo esc_attr($phone_target); ?>" class="phone">
+              <?php echo esc_html($phone_title); ?>
+            </a>
+          <?php endif; ?>
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">© 1991-2023 «Совтест АТЕ», ООО <a href="#">Политика конфиденциальности</a></p>
+        <p class="footer__copy">© 1991-2023 «Совтест АТЕ», ООО <a target="_blank"
+            href="<?php echo get_privacy_policy_url(); ?>">Политика конфиденциальности</a></p>
         <ul class="footer__contacts">
-          <li>
-            <span>Телефон в Курске:</span>
-            <p>8 (4712) 54 54 17, 73 04 90</p>
-          </li>
-          <li>
-            <span>Факс:</span>
-            <p>(472) 54 54 24</p>
-          </li>
-          <li>
-            <span>Email:</span>
-            <a href="mailto:rev-e@sovtest-ate.com">rev-e@sovtest-ate.com</a>
-          </li>
+          <?php $phone_kursk = get_field('phone_kursk', 'options');
+          if ($phone_kursk): ?>
+            <li>
+              <span>
+                <?php echo $phone_kursk['title']; ?>
+              </span>
+              <p>
+                <?php echo $phone_kursk['number']; ?>
+              </p>
+            </li>
+          <?php endif; ?>
+          <?php $faks = get_field('faks', 'options');
+          if ($faks): ?>
+            <li>
+              <span>
+                <?php echo $faks['title']; ?>
+              </span>
+              <p>
+                <?php echo $faks['faks']; ?>
+              </p>
+            </li>
+          <?php endif; ?>
+          <?php $email = get_field('email', 'options');
+          if ($email): ?>
+            <li>
+              <span>
+                <?php echo $email['title']; ?>
+              </span>
+              <?php
+              $email_link = get_field('email_link', 'options');
+              if ($email_link):
+                $email_link_url = $email_link['url'];
+                $email_link_title = $email_link['title'];
+                ?>
+                <a href="<?php echo esc_url($email_link_url); ?>">
+                  <?php echo esc_html($email_link_title); ?>
+                </a>
+              <?php endif; ?>
+            </li>
+          <?php endif; ?>
         </ul>
       </div>
     </div>

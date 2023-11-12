@@ -42,6 +42,19 @@ add_action('wp_enqueue_scripts', 'sovtest_scripts');
 
 
 /**
+ * Регистрирация областей меню
+ */
+function sovtest_menus()
+{
+	$locations = array(
+		'header' => __('Nav Menu', 'sovtest'),
+	);
+	register_nav_menus($locations);
+}
+add_action('init', 'sovtest_menus');
+
+
+/**
  * СОЗДАНИЕ OPTIONS PAGE и OPTIONS SUB PAGE
  */
 if( function_exists('acf_add_options_page') ) {

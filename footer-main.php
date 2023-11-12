@@ -3,35 +3,77 @@
   <div class="container">
     <div class="footer__top">
       <a href="/" class="logo">
-        <img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="">
+        <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt="">
       </a>
-      <ul class="nav__menu">
-        <li><a href="#">Резка</a></li>
-        <li><a href="#">Гибка</a></li>
-        <li><a href="#">Сварка</a></li>
-        <li><a href="#">Покраска</a></li>
-        <li><a href="#">Сложные корпусные изделия</a></li>
-      </ul>
+      <?php
+      wp_nav_menu([
+        'theme_location' => 'header',
+        'container' => '',
+        'menu_class' => 'nav__menu',
+        'menu_id' => false,
+        'echo' => true,
+        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+      ]);
+      ?>
       <div class="nav__links">
         <a href="#">Заказать расчет стоимости</a>
-        <a href="tel:+88005674578" class="phone">8 800 567 45 78</a>
+        <?php
+        $phone = get_field('phone', 'options');
+        if ($phone):
+          $phone_url = $phone['url'];
+          $phone_title = $phone['title'];
+          $phone_target = $phone['target'] ? $phone['target'] : '_self';
+          ?>
+          <a href="<?php echo esc_url($phone_url); ?>" target="<?php echo esc_attr($phone_target); ?>" class="phone">
+            <?php echo esc_html($phone_title); ?>
+          </a>
+        <?php endif; ?>
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 1991-2023 «Совтест АТЕ», ООО <a href="#">Политика конфиденциальности</a></p>
+      <p class="footer__copy">© 1991-2023 «Совтест АТЕ», ООО <a target="_blank"
+          href="<?php echo get_privacy_policy_url(); ?>">Политика конфиденциальности</a></p>
       <ul class="footer__contacts">
-        <li>
-          <span>Телефон в Курске:</span>
-          <p>8 (4712) 54 54 17, 73 04 90</p>
-        </li>
-        <li>
-          <span>Факс:</span>
-          <p>(472) 54 54 24</p>
-        </li>
-        <li>
-          <span>Email:</span>
-          <a href="mailto:rev-e@sovtest-ate.com">rev-e@sovtest-ate.com</a>
-        </li>
+        <?php $phone_kursk = get_field('phone_kursk', 'options');
+        if ($phone_kursk): ?>
+          <li>
+            <span>
+              <?php echo $phone_kursk['title']; ?>
+            </span>
+            <p>
+              <?php echo $phone_kursk['number']; ?>
+            </p>
+          </li>
+        <?php endif; ?>
+        <?php $faks = get_field('faks', 'options');
+        if ($faks): ?>
+          <li>
+            <span>
+              <?php echo $faks['title']; ?>
+            </span>
+            <p>
+              <?php echo $faks['faks']; ?>
+            </p>
+          </li>
+        <?php endif; ?>
+        <?php $email = get_field('email', 'options');
+        if ($email): ?>
+          <li>
+            <span>
+              <?php echo $email['title']; ?>
+            </span>
+            <?php
+            $email_link = get_field('email_link', 'options');
+            if ($email_link):
+              $email_link_url = $email_link['url'];
+              $email_link_title = $email_link['title'];
+              ?>
+              <a href="<?php echo esc_url($email_link_url); ?>">
+                <?php echo esc_html($email_link_title); ?>
+              </a>
+            <?php endif; ?>
+          </li>
+        <?php endif; ?>
       </ul>
     </div>
   </div>
