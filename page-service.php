@@ -44,31 +44,9 @@ get_header(); ?>
           <h2 class="form-title">
             <?php the_field('form_title', 'options') ?>
           </h2>
-          <form action="#" class="form">
-            <div class="form-group">
-              <input type="text" class="form-input" placeholder="ФИО">
-            </div>
-            <div class="form-group">
-              <input type="number" class="form-input" placeholder="+7 ___ ___ __ __">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-input" placeholder="Whitelist">
-            </div>
-            <div class="form-group">
-              <textarea name="" id="" cols="30" rows="10" placeholder=""></textarea>
-            </div>
-            <div class="form-bottom">
-              <div class="input-group file-upload">
-                <span class="wpcf7-form-control-wrap file-801 file-input">
-                  <input type="file" size="40"
-                    class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" id="cv_file"
-                    accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv">
-                </span>
-                <label></label>
-              </div>
-              <input type="submit" value="Отправить заявку" class="button">
-            </div>
-          </form>
+          <div class="form">
+            <?php echo do_shortcode('[contact-form-7 id="71a72c8" title="Форма на главном экране"]'); ?>
+          </div>
           <?php $form_accept_link = get_field('form_accept_link', 'options');
           if ($form_accept_link):
             $form_accept_link_url = $form_accept_link['url'];
@@ -142,7 +120,7 @@ get_header(); ?>
                       the_row(); ?>
                       <div class="swiper-slide">
                         <div class="about__info">
-                          <?php the_field('item'); ?>
+                          <?php the_sub_field('item'); ?>
                         </div>
                       </div>
                     <?php endwhile; ?>
@@ -259,31 +237,9 @@ get_header(); ?>
             <h2 class="form-title">
               <?php the_field('form_title', 'options') ?>
             </h2>
-            <form action="#" class="form">
-              <div class="form-group">
-                <input type="text" class="form-input" placeholder="ФИО">
-              </div>
-              <div class="form-group">
-                <input type="number" class="form-input" placeholder="+7 ___ ___ __ __">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-input" placeholder="Whitelist">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="10" placeholder=""></textarea>
-              </div>
-              <div class="form-bottom">
-                <div class="input-group file-upload">
-                  <span class="wpcf7-form-control-wrap file-801 file-input">
-                    <input type="file" size="40"
-                      class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" id="cv_file"
-                      accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv">
-                  </span>
-                  <label></label>
-                </div>
-                <input type="submit" value="Отправить заявку" class="button">
-              </div>
-            </form>
+            <div class="form">
+              <?php echo do_shortcode('[contact-form-7 id="8fb740d" title="Форма в блоке cta"]'); ?>
+            </div>
             <?php $form_accept_link = get_field('form_accept_link', 'options');
             if ($form_accept_link):
               $form_accept_link_url = $form_accept_link['url'];

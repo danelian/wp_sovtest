@@ -897,11 +897,31 @@ th {
   }
 }
 /*-----form-----*/
-.form {
+.form,
+.wpcf7-form {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+.wpcf7-response-output {
+  width: 100%;
+  margin: 12px 0 0 0 !important;
+  padding: 6px !important;
+  font-size: 12px !important;
+  line-height: 1.2;
+  color: var(--white-color);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(217, 217, 217, 0.01);
+  backdrop-filter: blur(31px);
+}
+.wpcf7-not-valid-tip {
+  font-size: 12px !important;
+  color: var(--global-color) !important;
+}
+.wpcf7-form p {
+  margin: 0 !important;
 }
 .form-wrapper {
   padding: 2.5vw 2.5vw 1.458vw 2.5vw;
@@ -985,6 +1005,7 @@ th {
   justify-content: flex-start;
   margin-right: 1.25vw;
 }
+.file-upload .wpcf7-form-control-wrap,
 .file-input, .file-item {
   display: flex;
   align-items: center;
@@ -1000,6 +1021,7 @@ th {
   backdrop-filter: blur(30px);
   transition: 0.3s ease;
 }
+.file-upload .wpcf7-form-control-wrap::before,
 .file-input:before, .file-item:before {
   content: "";
   position: absolute;
@@ -1011,12 +1033,15 @@ th {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.file-upload .wpcf7-form-control-wrap,
 .file-input {
   cursor: pointer;
 }
+.file-upload .wpcf7-form-control-wrap::before,
 .file-input:before {
   background-image: url("../img/icons/skrepka.svg");
 }
+.file-upload .wpcf7-form-control-wrap .wpcf7-file,
 .file-input input {
   width: 3.125vw;
   height: 3.125vw;
@@ -1116,14 +1141,17 @@ input[type=number]::-webkit-inner-spin-button {
   .file-upload {
     margin-right: 20px;
   }
+  .file-upload .wpcf7-form-control-wrap,
   .file-input, .file-item {
     width: 44px;
     height: 44px;
   }
+  .file-upload .wpcf7-form-control-wrap::before,
   .file-input:before, .file-item:before {
     width: 22px;
     height: 22px;
   }
+  .file-upload .wpcf7-form-control-wrap .wpcf7-file,
   .file-input input {
     width: 44px;
     height: 44px;
@@ -1545,8 +1573,28 @@ input[type=number]::-webkit-inner-spin-button {
   position: absolute;
   top: 0;
   left: 0;
-  width: 60vw;
+  width: 50vw;
   z-index: -1;
+}
+.page-id-43 .about__illustration {
+  width: 55vw;
+}
+.page-id-117 .about__illustration {
+  width: 45vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.page-id-119 .about__illustration {
+  width: 40vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.page-id-121 .about__illustration {
+  width: 65vw;
+}
+.page-id-123 .about__illustration {
+  width: 35vw;
+  left: 3.646vw;
 }
 .about__container {
   display: flex;
@@ -1611,6 +1659,7 @@ input[type=number]::-webkit-inner-spin-button {
 .about__first-content {
   width: 41.1vw;
   padding: 0 1.25vw 0 0.833vw;
+  margin-left: 50vw;
   margin-bottom: 1.25vw;
 }
 .about__second {
@@ -1686,8 +1735,11 @@ input[type=number]::-webkit-inner-spin-button {
     padding-top: 50px;
   }
   .about__illustration {
-    width: auto;
-    max-width: 30%;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: 30% !important;
   }
   .about__content {
     padding-left: 20px;
@@ -1714,6 +1766,7 @@ input[type=number]::-webkit-inner-spin-button {
     padding-right: 0;
     padding-left: 20px;
     margin-bottom: 16px;
+    margin-left: 0;
   }
   .about__first-wrapper {
     flex-direction: column;
@@ -1761,7 +1814,7 @@ input[type=number]::-webkit-inner-spin-button {
     padding-bottom: 40px;
   }
   .about__illustration {
-    max-width: 90%;
+    max-width: 90% !important;
     opacity: 0.5;
   }
   .about__content {
