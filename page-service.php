@@ -4,8 +4,10 @@ Template Name: Шаблон страницы услуги
 */
 get_header(); ?>
 
+<div id="pagepiling">
+
 <!-- HERO -->
-<section class="vertical-scrolling hero" style="background-image: url('<?php the_field('hero_bg'); ?>');">
+<section class="section hero" id="section1" style="background-image: url('<?php the_field('hero_bg'); ?>');">
   <div class="container">
     <div class="hero__container">
       <div class="hero__left">
@@ -54,8 +56,7 @@ get_header(); ?>
             $form_accept_link_target = $form_accept_link['target'] ? $form_accept_link['target'] : '_self';
             ?>
           <?php endif; ?>
-          <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a target="_blank"
-              href="<?php echo get_privacy_policy_url(); ?>">политикой конфиденциальности</a></p>
+          <p class="accept">Нажимая кнопку “Отправить заявку” вы соглашаетесь с <a target="_blank" href="<?php echo get_privacy_policy_url(); ?>">политикой конфиденциальности</a></p>
         </div>
       </div>
     </div>
@@ -63,7 +64,7 @@ get_header(); ?>
 </section>
 
 <!-- ABOUT -->
-<section class="vertical-scrolling about">
+<section class="section about" id="section2">
   <img src="<?php the_field('about_illustration'); ?>" class="about__illustration" alt="">
   <div class="container">
     <div class="about__container">
@@ -137,7 +138,7 @@ get_header(); ?>
 </section>
 
 <!-- GALLERY -->
-<section class="vertical-scrolling gallery">
+<section class="section gallery" id="section3">
   <div class="container">
     <h2 class="section-title">
       <?php the_field('gallery_title'); ?>
@@ -178,7 +179,7 @@ get_header(); ?>
 </section>
 
 <!-- BENEFITS -->
-<section class="vertical-scrolling benefits">
+<section class="section benefits" id="section4">
   <div class="container">
     <h2 class="section-title">
       <?php the_field('benefits_title'); ?>
@@ -216,7 +217,7 @@ get_header(); ?>
 </section>
 
 <!-- CTA -->
-<div class="vertical-scrolling" style="justify-content: flex-end;">
+<div class="section" id="section5">
   <section class="cta">
     <div class="container">
       <div class="cta__wrapper" style="background-image: url('<?php the_field('hero_bg'); ?>')">
@@ -238,7 +239,7 @@ get_header(); ?>
               <?php the_field('form_title', 'options') ?>
             </h2>
             <div class="form">
-              <?php echo do_shortcode('[contact-form-7 id="8fb740d" title="Форма в блоке cta"]'); ?>
+              <?php echo do_shortcode('[contact-form-7 id="f376e8d" title="Форма в последнем блоке"]'); ?>
             </div>
             <?php $form_accept_link = get_field('form_accept_link', 'options');
             if ($form_accept_link):
@@ -335,6 +336,8 @@ get_header(); ?>
       </div>
     </div>
   </footer>
+</div>
+
 </div>
 
 <?php get_footer(); ?>

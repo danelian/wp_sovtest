@@ -13,7 +13,7 @@
 
   <!-- HEADER -->
   <header class="header header-main" id="header">
-    <a href="/" class="logo">
+    <a href="<?php echo get_home_url(); ?>" class="logo">
       <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt="">
     </a>
     <div class="container header__container">
@@ -36,7 +36,7 @@
         ]);
         ?>
         <div class="nav__links">
-          <a href="#">Заказать расчет стоимости</a>
+          <a data-fancybox href="#modal-order" data-options='{"touch" : false}'>Заказать расчет стоимости</a>
           <?php
         $phone = get_field('phone', 'options');
         if ($phone):

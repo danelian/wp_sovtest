@@ -2,7 +2,7 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__top">
-      <a href="/" class="logo">
+      <a href="<?php echo get_home_url(); ?>" class="logo">
         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt="">
       </a>
       <?php
@@ -16,7 +16,7 @@
       ]);
       ?>
       <div class="nav__links">
-        <a href="#">Заказать расчет стоимости</a>
+        <!-- <a href="#fifthSection">Заказать расчет стоимости</a> -->
         <?php
         $phone = get_field('phone', 'options');
         if ($phone):

@@ -74,6 +74,37 @@ body {
   justify-content: center;
 }
 
+.wpcf7-spinner,
+.wpcf7-not-valid-tip,
+.wpcf7-response-output,
+.hidden {
+  display: none;
+}
+.wpcf7-not-valid {
+  border-color: var(--global-color) !important;
+}
+
+html {
+  overflow-y: auto;
+}
+.page-template-default .header {
+  position: relative;
+  margin-bottom: 50px;
+  background-color: rgba(30, 30, 30, 0.95);
+}
+.page-template-default .header__container {
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+}
+.page-template-default {
+  padding-bottom: 50px;
+  overflow-y: auto !important;
+  height: 100% !important;
+}
+.page-template-default .section-title {
+  font-weight: 700;
+}
+
 .dis-scroll {
   overflow: hidden;
   height: 100vh;
@@ -357,20 +388,22 @@ th {
 }
 
 /* SLIDENAV STYLES */
-#fp-nav {
+.pp-tableCell {
+  max-width: 100vw;
+}
+#pp-nav {
   right: 1.563vw !important;
 }
 
-#fp-nav ul li {
+#pp-nav ul li {
   display: block;
-  width: 15px !important;
+  width: 5px !important;
   height: 24px !important;
   margin: 14px 0 !important;
 }
-
-#fp-nav ul li a span,
-#fp-nav ul li:hover a span,
-#fp-nav ul li a.active span {
+#pp-nav ul li a span,
+#pp-nav ul li:hover a span,
+#pp-nav ul li a.active span {
   width: 5px !important;
   height: 24px !important;
   border-radius: 10px !important;
@@ -380,13 +413,30 @@ th {
   transition: background-color 0.3s ease;
 }
 
-#fp-nav ul li a span {
+#pp-nav ul li a span {
   background-color: var(--gray-color);
 }
 
-#fp-nav ul li:hover a span,
-#fp-nav ul li a.active span {
+#pp-nav ul li:hover a span,
+#pp-nav ul li a.active span {
   background-color: var(--global-color);
+}
+
+@media screen and (min-width: 1025px) {
+  body,
+  .section {
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 1024px) {
+  html,
+  body {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .section {
+    height: auto;
+  }
 }
 
 /*-----buttons----*/
@@ -457,6 +507,65 @@ th {
     font-size: 24px;
   }
 }
+
+
+/*--------- modal ----------*/
+.modal {
+  width: 36.458vw;
+  padding: 2.5vw;
+  color: var(--font-color);
+  border-radius: 5px;
+  /* background-color: rgba(30, 30, 30, 0.95); */
+  background-color: #ffffff;
+}
+.modal .form-title {
+  color: var(--font-color);
+}
+.modal .form-input,
+.modal .form textarea {
+  color: var(--font-color);
+  border-color: #eaeaea;
+  background: #f4f4f4;
+  backdrop-filter: blur(0);
+}
+.modal .form-input::placeholder,
+.modal .form textarea::placeholder {
+  color: rgba(30, 30, 30, 0.80);
+}
+.modal .file-upload .wpcf7-form-control-wrap,
+.modal .file-input, .file-item {
+  border-color: #eaeaea;
+  background: #f4f4f4;
+  backdrop-filter: blur(0);
+}
+.file-upload .wpcf7-form-control-wrap::before,
+.file-input:before {
+  background-image: url("../img/icons/skrepka-black.svg");
+}
+.file-item:before {
+  background-image: url("../img/icons/file-black.svg");
+}
+.file-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -0.35vw;
+  right: -0.35vw;
+  width: 0.833vw;
+  height: 0.833vw;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  z-index: 10;
+}
+.modal .accept {
+  color: var(--font-color);
+}
+
 /***** COMPONENTS GLOBAL *****/
 /*----header-----*/
 .header {
@@ -476,8 +585,8 @@ th {
   -webkit-backdrop-filter: blur(0);
 }
 .header.active .header__container {
-  padding-top: 2vw;
-  padding-bottom: 2vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
 }
 .header-main {
   padding: 3.646vw;
@@ -560,10 +669,15 @@ th {
 @media screen and (max-width: 1024px) {
   .header {
     background-color: rgba(217, 217, 217, 0.01);
+    background-color: rgba(30, 30, 30, 0.95);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
   }
   .header.active .header__container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .page-template-default .header__container {
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -1566,8 +1680,12 @@ input[type=number]::-webkit-inner-spin-button {
 }
 /*-----about-----*/
 .about {
-  position: relative;
   padding-bottom: 50px;
+}
+@media screen and (max-width: 1024px) {
+  .about {
+    position: relative;
+  }
 }
 .about__illustration {
   position: absolute;
@@ -2085,6 +2203,13 @@ input[type=number]::-webkit-inner-spin-button {
 .cta {
   margin-bottom: 4.167vw;
   padding-top: 1.563vw;
+}
+@media screen and (min-width: 1025px) {
+  #section5 .pp-tableCell {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 }
 .cta__wrapper {
   display: flex;
