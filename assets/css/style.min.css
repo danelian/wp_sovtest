@@ -105,6 +105,19 @@ html {
   font-weight: 700;
 }
 
+.page-id-6 {
+  padding-bottom: 0;
+  height: 100vh !important;
+}
+.page-id-6 .header-main {
+  position: fixed;
+  margin-bottom: 0;
+  background-color: transparent;
+}
+.page-id-6 .header-main .header__container {
+  padding: 3.646vw;
+}
+
 .dis-scroll {
   overflow: hidden;
   height: 100vh;
@@ -511,12 +524,34 @@ th {
 
 /*--------- modal ----------*/
 .modal {
+  position: relative;
   width: 36.458vw;
   padding: 2.5vw;
   color: var(--font-color);
   border-radius: 5px;
-  /* background-color: rgba(30, 30, 30, 0.95); */
   background-color: #ffffff;
+  cursor: auto !important;
+}
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #c5c5c5;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+.modal-close img {
+  width: 14px;
+  height: 14px;
+}
+.modal-close:hover {
+  background-color: #898989;
 }
 .modal .form-title {
   color: var(--font-color);
@@ -533,37 +568,37 @@ th {
   color: rgba(30, 30, 30, 0.80);
 }
 .modal .file-upload .wpcf7-form-control-wrap,
-.modal .file-input, .file-item {
+.modal .file-input, 
+.modal .file-item {
   border-color: #eaeaea;
   background: #f4f4f4;
   backdrop-filter: blur(0);
 }
-.file-upload .wpcf7-form-control-wrap::before,
-.file-input:before {
+.modal .file-upload .wpcf7-form-control-wrap::before,
+.modal .file-input:before {
   background-image: url("../img/icons/skrepka-black.svg");
 }
-.file-item:before {
+.modal .file-item:before {
   background-image: url("../img/icons/file-black.svg");
-}
-.file-delete {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -0.35vw;
-  right: -0.35vw;
-  width: 0.833vw;
-  height: 0.833vw;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: none;
-  background: none;
-  z-index: 10;
 }
 .modal .accept {
   color: var(--font-color);
+}
+
+#modal-order-success {
+  text-align: center;
+}
+#modal-order-success .form-title {
+  text-align: center;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .modal {
+    width: 600px;
+    max-width: 98%;
+    padding: 36px 20px 20px 20px;
+  }
 }
 
 /***** COMPONENTS GLOBAL *****/
@@ -681,6 +716,20 @@ th {
     padding-top: 15px;
     padding-bottom: 15px;
   }
+  .page-id-6 {
+    padding-bottom: 0;
+    height: auto !important;
+  }
+  .page-id-6 .header-main {
+    position: relative;
+    background-color: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+  .page-id-6 .header-main .header__container {
+    padding: 15px;
+  }
+  
   .header-main {
     padding: 0;
     position: relative;

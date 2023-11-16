@@ -36,7 +36,7 @@
         ]);
         ?>
         <div class="nav__links">
-          <a data-fancybox href="#modal-order" data-options='{"touch" : false}'>Заказать расчет стоимости</a>
+          <a data-fancybox href="#modal-order">Заказать расчет стоимости</a>
           <?php
         $phone = get_field('phone', 'options');
         if ($phone):

@@ -16,7 +16,7 @@
       ]);
       ?>
       <div class="nav__links">
-        <!-- <a href="#fifthSection">Заказать расчет стоимости</a> -->
+        <a data-fancybox href="#modal-order">Заказать расчет стоимости</a>
         <?php
         $phone = get_field('phone', 'options');
         if ($phone):

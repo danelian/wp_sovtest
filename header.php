@@ -33,16 +33,7 @@
         ]);
         ?>
         <div class="nav__links">
-          <!-- <div id="pp-menu">
-            <ul>
-              <li data-menuanchor="section1" class="active"><a href="#section1">Page 1</a></li>
-              <li data-menuanchor="section2"><a href="#section2">Page 2</a></li>
-              <li data-menuanchor="section3"><a href="#section3">Page 3</a></li>
-              <li data-menuanchor="section4"><a href="#section4">Page 4</a></li>
-              <li data-menuanchor="section5"><a href="#section5">Page 5</a></li>
-            </ul>
-          </div>-->
-          <a data-fancybox href="#modal-order" data-options='{"touch" : false}'>Заказать расчет стоимости</a>
+          <a data-fancybox href="#modal-order">Заказать расчет стоимости</a>
           <?php
           $phone = get_field('phone', 'options');
           if ($phone):

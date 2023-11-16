@@ -152,7 +152,7 @@ get_header(); ?>
               <div class="swiper-wrapper">
                 <?php while (have_rows('slider')):
                   the_row(); ?>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" data-fancybox="gallery" href="<?php the_sub_field('img'); ?>">
                     <img src="<?php the_sub_field('img'); ?>" alt="">
                   </div>
                 <?php endwhile; ?>
@@ -168,7 +168,9 @@ get_header(); ?>
             <div class="gallery__cards">
               <?php while (have_rows('cards')):
                 the_row(); ?>
-                <img src="<?php the_sub_field('img'); ?>" alt="">
+                <a data-fancybox="gallery" href="<?php the_sub_field('img'); ?>">
+                  <img src="<?php the_sub_field('img'); ?>" alt="">
+                </a>
               <?php endwhile; ?>
             </div>
           <?php endif; ?>
@@ -217,7 +219,7 @@ get_header(); ?>
 </section>
 
 <!-- CTA -->
-<div class="section" id="section5">
+<div class="section pp-scrollable" id="section5">
   <section class="cta">
     <div class="container">
       <div class="cta__wrapper" style="background-image: url('<?php the_field('hero_bg'); ?>')">
@@ -274,7 +276,7 @@ get_header(); ?>
         ]);
         ?>
         <div class="nav__links">
-          <a href="#">Заказать расчет стоимости</a>
+          <a data-fancybox href="#modal-order">Заказать расчет стоимости</a>
           <?php
           $phone = get_field('phone', 'options');
           if ($phone):
